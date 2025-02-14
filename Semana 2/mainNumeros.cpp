@@ -8,6 +8,6 @@ Numeros progA;
 int main(){
 
     progA.inicializar();
-    progA.encontratMayor();
+    progA.encontrarMayor();
     return 0;
 }

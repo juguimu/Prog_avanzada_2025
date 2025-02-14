@@ -7,7 +7,8 @@ class Numeros
 public:
     int A,B,C;
     void inicializar();
-    void encontratMayor();
+    void encontrarMayor();
+    void encontrarMenor();
 };
 
 void Numeros::inicializar(){
@@ -20,7 +21,7 @@ void Numeros::inicializar(){
 }
 
 
-void Numeros::encontratMayor(){
+void Numeros::encontrarMayor(){
     if(A!=B && A!=C && C!=B){
         if (C>A && C>B)
         {
@@ -65,4 +66,46 @@ void Numeros::encontratMayor(){
 
 }
 
+void Numeros::encontrarMenor(){
+    if(A!=B && A!=C && C!=B){
+        if (C<A && C<B)
+        {
+            cout<<"C es Menor";
+        }
+        else if(A<B){
+            cout<<"A es Menor";
+        }
+        else{
+            cout<<"B es Menor";
+        }
+    }
+    else if(A==B && A!=C){
+        if(A<C){
+            cout<<"A y B Menores";
+        }
+        else{
+            cout<<"C es Menor";
+        }    
+    }  
+    else if(A==C && A!=B){
+        if(A<B){
+            cout<<"A y C Menores";
+        }
+        else{
+            cout<<"B es Menor";
+        }    
+    }  
+    else if(C==B && B!=A){
+        if(A<C){
+            cout<<"B y C Menores";
+        }
+        else{
+            cout<<"A es Menor";
+        }    
+    }
+    else{
+        cout<<"Son iguales";
+    }
+    
 
+}
