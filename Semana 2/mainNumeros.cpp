@@ -10,5 +10,6 @@ int main(){
     progA.inicializar();
     progA.encontrarMayor();
     progA.encontrarMenor();
+    progA.encontrarIguales();
     return 0;
 }
