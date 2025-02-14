@@ -9,5 +9,6 @@ int main(){
 
     progA.inicializar();
     progA.encontrarMayor();
+    progA.encontrarMenor();
     return 0;
 }

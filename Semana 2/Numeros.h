@@ -9,6 +9,7 @@ public:
     void inicializar();
     void encontrarMayor();
     void encontrarMenor();
+    void encontrarIguales();
 };
 
 void Numeros::inicializar(){
@@ -25,42 +26,41 @@ void Numeros::encontrarMayor(){
     if(A!=B && A!=C && C!=B){
         if (C>A && C>B)
         {
-            cout<<"C es Mayor";
+            cout<<"C es Mayor"<<endl;
         }
         else if(A>B){
-            cout<<"A es Mayor";
+            cout<<"A es Mayor"<<endl;
         }
         else{
-            cout<<"B es Mayor";
+            cout<<"B es Mayor"<<endl;
         }
     }
     else if(A==B && A!=C){
         if(A>C){
-            cout<<"A y B Mayores";
+            cout<<"A y B Mayores"<<endl;
         }
         else{
-            cout<<"Ojo";
-            cout<<"C es Mayor";
+            cout<<"C es Mayor"<<endl;
         }    
     }  
     else if(A==C && A!=B){
         if(A>B){
-            cout<<"A y C Mayores";
+            cout<<"A y C Mayores"<<endl;
         }
         else{
-            cout<<"B es Mayor";
+            cout<<"B es Mayor"<<endl;
         }    
     }  
     else if(C==B && B!=A){
         if(A>C){
-            cout<<"B y C Mayores";
+            cout<<"B y C Mayores"<<endl;
         }
         else{
-            cout<<"A es Mayor";
+            cout<<"A es Mayor"<<endl;
         }    
     }
     else{
-        cout<<"Son iguales";
+        cout<<"Son iguales"<<endl;
     }
     
 
@@ -70,42 +70,48 @@ void Numeros::encontrarMenor(){
     if(A!=B && A!=C && C!=B){
         if (C<A && C<B)
         {
-            cout<<"C es Menor";
+            cout<<"C es Menor"<<endl;
         }
         else if(A<B){
-            cout<<"A es Menor";
+            cout<<"A es Menor"<<endl;
         }
         else{
-            cout<<"B es Menor";
+            cout<<"B es Menor"<<endl;
         }
     }
     else if(A==B && A!=C){
         if(A<C){
-            cout<<"A y B Menores";
+            cout<<"A y B Menores"<<endl;
         }
         else{
-            cout<<"C es Menor";
+            cout<<"C es Menor"<<endl;
         }    
     }  
     else if(A==C && A!=B){
         if(A<B){
-            cout<<"A y C Menores";
+            cout<<"A y C Menores"<<endl;
         }
         else{
-            cout<<"B es Menor";
+            cout<<"B es Menor"<<endl;
         }    
     }  
     else if(C==B && B!=A){
         if(A<C){
-            cout<<"B y C Menores";
+            cout<<"B y C Menores"<<endl;
         }
         else{
-            cout<<"A es Menor";
+            cout<<"A es Menor"<<endl;
         }    
     }
     else{
-        cout<<"Son iguales";
+        cout<<"Son iguales"<<endl;
     }
     
 
+}
+
+
+void Numeros::encontrarIguales(){
+
+    
 }
