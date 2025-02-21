@@ -14,8 +14,28 @@ public:
 };
 
 void Numeros::inicializar() {
-	cout << "Ingrese el numero: ";
-	cin >> num;
+	//num debe ser positivo y mayor que 1
+	/* while (true)
+	{
+		cout << "Ingrese el numero: ";
+		cin >> num;
+		cout<<"Ingreso el numero";
+		if (num>1)
+		{
+			cout<<"break";
+			break;
+		}
+		
+	}	 */	
+	bool band=true;
+	while(band){
+		cout << "Ingrese el numero: ";
+		cin >> num;
+		if (num>1)
+		{
+			band=false;
+		}
+	}
 }
 
 void Numeros::par_impar() {

@@ -1,20 +1,20 @@
 #include<iostream>
 
 //#include"Contador.h"
-#include"Numeros.h"
+#include"Logica.h"
 
 using namespace std;
 
 //Contador conteo;w
-Numeros prueba;
+Logica progA;
 
 
 int main() {
-	prueba.inicializar();
-	prueba.par_impar();
+    progA.inicializar();
+	progA.introducirEdades();
+    progA.mostrarDatos();
 	
 
 
 	return 0;
 }
-

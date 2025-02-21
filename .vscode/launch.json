@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/progdev/cpp/Prog_avanzada_2025/Semana 1",
-      "program": "c:/progdev/cpp/Prog_avanzada_2025/Semana 1/build/Debug/outDebug",
+      "cwd": "c:/progdev/cpp/Prog_avanzada_2025/Semana 3",
+      "program": "c:/progdev/cpp/Prog_avanzada_2025/Semana 3/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
