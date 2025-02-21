@@ -1,5 +1,7 @@
 /* Construir una clase llamada Logica, la cual tiene los siguientes atributos edad_min, edad_max y rango. La clase tiene un método llamado introducir_edades(), donde se agregan las edades de n estudiantes, se guarda la mínima, la máxima y el rango (edad_máxima-edad_mínima) hasta que se introduce el número 99. Si la edad está por encima de 50 o por debajo de 10, debe volver a preguntar la edad para el mismo estudiante mostrando un mensaje de error. Por último, incluir un método mostrar_datos(), el cual muestra la edad mínima, la edad máxima ingresada y el rango. */ 
 
+//promedio de edades
+
 
 #include<iostream>
 
@@ -10,6 +12,8 @@ class Logica
 {
     public:
         int edad_min, edad_max, rango;
+        float promedio;
+        int numEstudiantes;
         void introducirEdades();
         void inicializar();
         void mostrarDatos();
@@ -21,16 +25,20 @@ void Logica::inicializar(){
     edad_min=0;
     edad_max=0;
     rango=0;
+    promedio=0.0;
+    numEstudiantes=0;
 }
 
 void Logica::introducirEdades(){
     int edad;
+    int sumaEdades=0;
     bool band=true;
 	while(band){
 		cout << "Ingrese la edad: ";
 		cin >> edad;
 		if (edad==99)
 		{
+            promedio=sumaEdades/numEstudiantes;
             rango=edad_max-edad_min;
 			band=false;
 		}
@@ -51,6 +59,10 @@ void Logica::introducirEdades(){
                 edad_max=edad;
             }  
 
+            numEstudiantes++;
+            sumaEdades+=edad;
+
+
         }
 	}
 
@@ -58,5 +70,8 @@ void Logica::introducirEdades(){
 
 void Logica::mostrarDatos(){
     cout<<"La edad minima es: "<<edad_min<<endl;
+    cout<<"La edad maxima es: "<<edad_max<<endl;
+    cout<<"rango: "<<rango<<endl;
+    cout<<"promedio: "<<promedio<<endl;
 }
 
