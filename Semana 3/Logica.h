@@ -19,6 +19,8 @@ class Logica
 
 void Logica::inicializar(){
     edad_min=0;
+    edad_max=0;
+    rango=0;
 }
 
 void Logica::introducirEdades(){
@@ -29,6 +31,7 @@ void Logica::introducirEdades(){
 		cin >> edad;
 		if (edad==99)
 		{
+            rango=edad_max-edad_min;
 			band=false;
 		}
         else if(edad<10 || edad>50){
@@ -43,7 +46,11 @@ void Logica::introducirEdades(){
             cout<<"Edad ingrasada correctamente"<<endl;
             if(edad_min==0 || edad_min>edad){
                 edad_min=edad;
-            }    
+            }   
+            if(edad_max==0 || edad_max<edad){
+                edad_max=edad;
+            }  
+
         }
 	}
 
