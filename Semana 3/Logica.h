@@ -38,7 +38,7 @@ void Logica::introducirEdades(){
 		cin >> edad;
 		if (edad==99)
 		{
-            promedio=sumaEdades/numEstudiantes;
+            promedio=float(sumaEdades)/float(numEstudiantes);
             rango=edad_max-edad_min;
 			band=false;
 		}
