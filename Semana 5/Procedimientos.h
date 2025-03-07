@@ -5,15 +5,28 @@
  
  class Procedimientos
  {
-
+ private:
+    
+    bool primo(int);
  public:
+    int A;
+    Procedimientos(int=0);
     int encontrarMayor(int,int,int);
     int encontrarMenor(int,int,int);
+    
     void proEncontrarMayorMenor(int&,int&); 
+    void proParyPrimo(bool&,bool&);
+   
  };
+
+ Procedimientos::Procedimientos(int a){
+    A=a;
+ }
+ 
  
  int Procedimientos::encontrarMayor(int A, int B, int C){
     int mayor;
+    A=0;
     if(A!=B && A!=C && C!=B){
         if (C>A && C>B)
         {
@@ -68,7 +81,7 @@
 }
 
 void Procedimientos::proEncontrarMayorMenor(int &Mayor,int &Menor){
-    int A,B,C;
+    int B,C;
     cout<<"Ingrese A: "<<endl;
     cin>>A;
     cout<<"Ingrese B: "<<endl;
@@ -77,4 +90,32 @@ void Procedimientos::proEncontrarMayorMenor(int &Mayor,int &Menor){
     cin>>C;
     Mayor=encontrarMayor(A,B,C);
     Menor=0;
+}
+
+bool Procedimientos::primo(int num){
+    bool r=true;
+    int cont=2;
+    if(num!=1||num!=2){
+        while(cont<num){
+            if(num%cont==0){
+                r=false;
+            }
+            cont++;
+        }
+    }    
+    return r;
+
+}
+
+void Procedimientos::proParyPrimo(bool &par_impar,bool &vprimo){
+    int num;
+    cout<<"Ingrese n: "<<endl;
+    cin>>num;
+    vprimo=primo(num);
+    if(num%2==0){
+        par_impar=true;
+    }
+    else{
+        par_impar=false;
+    }
 }
