@@ -12,6 +12,7 @@ int main(){
     curso.agregar(35);
     curso.agregar(37);
     cout<<"-------------------"<<endl;
+    curso.eliminar(1);
     curso.mostrar();
     return 0;
 }

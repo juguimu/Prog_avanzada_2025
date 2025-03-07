@@ -45,3 +45,21 @@ void Vector_edad::agregar(int e){
     }   
     
 }
+
+void Vector_edad::eliminar(int pos){
+    edad[pos]=0;
+    int temp;
+    if(pos==(tam_vector-1)){
+        tam_vector--;
+    }
+    else{
+
+        for (int i = pos; i < tam_vector; i++)
+        {
+            edad[i]=edad[i+1];
+            edad[i+1]=0;
+        }  
+        tam_vector--;   
+    }
+
+}
