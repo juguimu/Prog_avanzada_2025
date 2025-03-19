@@ -9,7 +9,10 @@ using namespace std;
 
 int main(){
 
-    ejemplo.ordenar();
+    ejemplo.ordenar(0);
+    ejemplo.imprimir();
+    cout<<"---------------------"<<endl;
+    ejemplo.ordenar(1);
     ejemplo.imprimir();
 
 
