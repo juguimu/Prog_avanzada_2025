@@ -12,19 +12,26 @@ private:
     float parcial[50];
     int tam;
 public:
-    Notas(int=5);
+    Notas(string[],float[],int);
     void ordenar(bool);
     void imprimir();
+    void eliminar(string);
+    float mayor_menor(bool);
+    void resumen();
+    float promedio();
+    void aprobacion(int&,int&);
 };
 
-Notas::Notas(int n)
+Notas::Notas(string nombres[],float notas[],int n)
 {
     for (int i = 0; i < n; i++)
     {
-        cout << "Estudiante " << i << ": ";
-        cin >> estudiante[i];
-        cout << "Nota: ";
-        cin >> parcial[i];
+        //cout << "Estudiante " << i << ": ";
+        //cin >> estudiante[i];
+        estudiante[i]=nombres[i];
+        //cout << "Nota: ";
+        //cin >> parcial[i];
+        parcial[i]=notas[i];
     }
     tam = n;
 }
@@ -33,6 +40,7 @@ Notas::Notas(int n)
 void Notas::ordenar(bool ad)
 {
     float temp;
+    string estudianteTemp;
     if (ad)
     {
         for (int j = 0; j < tam - 1; j++)
@@ -44,6 +52,9 @@ void Notas::ordenar(bool ad)
                     temp = parcial[i];
                     parcial[i] = parcial[i + 1];
                     parcial[i + 1] = temp;
+                    estudianteTemp = estudiante[i];
+                    estudiante[i] = estudiante[i + 1];
+                    estudiante[i + 1] = estudianteTemp;
                 }
             }
         }
@@ -58,6 +69,9 @@ void Notas::ordenar(bool ad)
                     temp = parcial[i];
                     parcial[i] = parcial[i + 1];
                     parcial[i + 1] = temp;
+                    estudianteTemp = estudiante[i];
+                    estudiante[i] = estudiante[i + 1];
+                    estudiante[i + 1] = estudianteTemp;
                 }
             }
         }
@@ -73,4 +87,80 @@ void Notas::imprimir()
     {
         cout<<setw(12)<<estudiante[i]<<"|"<<setw(12)<<parcial[i]<<endl;
     }
+}
+
+void Notas::eliminar(string est){
+    int pos;
+    for (int i = 0; i < tam; i++)
+    {
+        if(estudiante[i]==est){
+            pos=i;
+            break;
+        }
+    }
+    
+    
+    //parcial[pos]=0.0;
+    //estudiante[pos]="";
+    int temp;
+    if(pos==(tam-1)){
+        tam--;
+    }
+    else{
+
+        for (int i = pos; i < tam; i++)
+        {
+            parcial[i]=parcial[i+1];
+            parcial[i+1]=0.0;
+            estudiante[i]=estudiante[i+1];
+            estudiante[i+1]="";
+        }  
+        tam--;   
+    }
+
+}
+
+float Notas::mayor_menor(bool sel){
+    float temp=parcial[0];
+    if(sel){
+        for (int i = 1; i < tam; i++)
+        {
+            if(parcial[i]>parcial[i-1] && sel)temp=parcial[i];
+            else if(parcial[i]<parcial[i-1])temp=parcial[i];
+        }      
+    }
+    return temp;
+}
+
+void Notas::resumen(){
+    int numAprob=0;
+    int porcAprob=0;
+    cout<<"La nota mayor es: "<<mayor_menor(true)<<endl;
+    cout<<"La nota menor es: "<<mayor_menor(false)<<endl;
+    cout<<"El promedio es: "<<promedio()<<endl;
+    aprobacion(numAprob,porcAprob);
+    cout<<"Numero de estudiantes aprobados: "<<numAprob<<endl;
+    cout<<"El promedio es: "<<porcAprob<<"%"<<endl;
+}
+
+float Notas::promedio(){
+    float sum=parcial[0];
+    for (int i = 1; i < tam; i++)
+    {
+        sum+=parcial[i];
+    }
+    return sum/tam;   
+}
+
+void Notas::aprobacion(int &numeroAprobados,int &procentajeAprobados){
+    int cont=0;
+    
+    for (int i = 0; i < tam; i++)
+    {
+        if(parcial[i]>=3.0)cont++;
+    }
+
+    numeroAprobados=cont;
+    procentajeAprobados=(cont*100)/tam;
+    
 }
