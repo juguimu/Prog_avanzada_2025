@@ -14,7 +14,14 @@
 /*
 -Diseño de la tabla
 -Diseño del resumen
+*/
 
+//testeo
+
+/*
+--verifique si las notas estan el rango correcto
+--verifique los valores del resumen
+--verifique si no cadenas de caracteres vacias en los nombres 
 */
 
 
@@ -39,7 +46,7 @@ public:
     void resumen();
     float promedio();
     void aprobacion(int&,int&);
-    void agregar();
+    void agregar();//Ojo! terminar
 };
 
 Notas::Notas(string nombres[],float notas[],int n)
