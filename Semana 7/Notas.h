@@ -2,6 +2,25 @@
 #include<string>
 #include<iomanip>
 
+//Ejercicios
+
+//Validación
+/*
+-Que pasa cuando el tamaño del vector sea 0
+-que pasa si ingresan una nota fuera de rango
+-que pasa si el nombre se un estudiante es un string vacio
+*/
+//forma
+/*
+-Diseño de la tabla
+-Diseño del resumen
+
+*/
+
+
+
+
+
 
 using namespace std;
 
@@ -20,6 +39,7 @@ public:
     void resumen();
     float promedio();
     void aprobacion(int&,int&);
+    void agregar();
 };
 
 Notas::Notas(string nombres[],float notas[],int n)
@@ -122,19 +142,19 @@ void Notas::eliminar(string est){
 
 float Notas::mayor_menor(bool sel){
     float temp=parcial[0];
-    if(sel){
+  
         for (int i = 1; i < tam; i++)
         {
             if(parcial[i]>parcial[i-1] && sel)temp=parcial[i];
-            else if(parcial[i]<parcial[i-1])temp=parcial[i];
+            else if(parcial[i]<parcial[i-1] && !sel)temp=parcial[i];
         }      
-    }
+  
     return temp;
 }
 
 void Notas::resumen(){
-    int numAprob=0;
-    int porcAprob=0;
+    int numAprob;
+    int porcAprob;
     cout<<"La nota mayor es: "<<mayor_menor(true)<<endl;
     cout<<"La nota menor es: "<<mayor_menor(false)<<endl;
     cout<<"El promedio es: "<<promedio()<<endl;
