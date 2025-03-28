@@ -2,6 +2,19 @@
 #include<iomanip>
 
 
+//Métodos
+
+/*
+-agregar un estudiante (ok)
+-Notamayormenor retorna la nota y el estudiante(ok)
+-eliminar un estudiante
+-Resumen (número de aprobados, 
+        porcentaje de aprobación, 
+        promedio de cada una de las notas, 
+        cuantos estudiantes ganaban la materia con el 50%)
+*/
+
+
 using namespace std;
 
 const int numeroNotas=5;
@@ -18,6 +31,9 @@ private:
 public:
     NotasCurso(int=3);
     void mostrarPlanilla();
+    void ordenar(bool,int);
+    void agregar(string,float[]);
+    void mayor_menor(bool,int,float&,string&);
     
 };
 
@@ -68,4 +84,114 @@ void NotasCurso::mostrarPlanilla(){
         for (int i = 0; i < 74; i++)cout<<linea;
         cout<<endl;       
     }
+}
+
+void NotasCurso::ordenar(bool ad,int columna)
+{
+    float temp;
+    string estudianteTemp;
+    if (ad)
+    {
+        for (int n = 0; n < numEst - 1; n++)
+        {
+            for (int i = 0; i < numEst - 1 - n; i++)
+            {
+                if (notas[i][columna] < notas[i + 1][columna])
+                {
+                    temp = notas[i][0];
+                    notas[i][0] = notas[i + 1][0];
+                    notas[i + 1][0] = temp;
+
+                    temp = notas[i][1];
+                    notas[i][1] = notas[i + 1][1];
+                    notas[i + 1][1] = temp;
+
+                    temp = notas[i][2];
+                    notas[i][2] = notas[i + 1][2];
+                    notas[i + 1][2] = temp;
+
+                    temp = notas[i][3];
+                    notas[i][3] = notas[i + 1][3];
+                    notas[i + 1][3] = temp;
+
+                    temp = notas[i][4];
+                    notas[i][4] = notas[i + 1][4];
+                    notas[i + 1][4] = temp;
+
+
+
+                    estudianteTemp = nombreEst[i];
+                    nombreEst[i] = nombreEst[i + 1];
+                    nombreEst[i + 1] = estudianteTemp;
+                }
+            }
+        }
+    }
+    else{
+        for (int n = 0; n < numEst - 1; n++)
+        {
+            for (int i = 0; i < numEst - 1 - n; i++)
+            {
+                if (notas[i][columna] > notas[i + 1][columna])
+                {
+                    temp = notas[i][0];
+                    notas[i][0] = notas[i + 1][0];
+                    notas[i + 1][0] = temp;
+
+                    temp = notas[i][1];
+                    notas[i][1] = notas[i + 1][1];
+                    notas[i + 1][1] = temp;
+
+                    temp = notas[i][2];
+                    notas[i][2] = notas[i + 1][2];
+                    notas[i + 1][2] = temp;
+
+                    temp = notas[i][3];
+                    notas[i][3] = notas[i + 1][3];
+                    notas[i + 1][3] = temp;
+
+                    temp = notas[i][4];
+                    notas[i][4] = notas[i + 1][4];
+                    notas[i + 1][4] = temp;
+
+
+
+                    estudianteTemp = nombreEst[i];
+                    nombreEst[i] = nombreEst[i + 1];
+                    nombreEst[i + 1] = estudianteTemp;
+                }
+            }
+        }
+    }
+}
+
+void NotasCurso::agregar(string est,float cal[]){
+    nombreEst[numEst]=est;
+
+    for (int i = 0; i < numeroNotas-1; i++)
+    {
+        notas[numEst][i]=cal[i];
+    }
+    notas[numEst][numeroNotas-1]=notas[numEst][0]*0.2+notas[numEst][1]*0.3+notas[numEst][2]*0.15+notas[numEst][3]*0.35;
+    numEst++;    
+}
+
+void NotasCurso::mayor_menor(bool sel,int col,float &nota,string &est){
+    float temp=notas[0][col];
+    string tempEst;
+  
+        for (int i = 1; i < numEst; i++)
+        {
+            if(notas[i][col]>temp && sel){
+                temp=notas[i][col];
+                tempEst=nombreEst[i];
+            }
+            else if(notas[i][col]<temp && !sel){
+                temp=notas[i][col];
+                tempEst=nombreEst[i];
+            }
+        }      
+  
+    nota=temp;
+    est=tempEst;
 }
