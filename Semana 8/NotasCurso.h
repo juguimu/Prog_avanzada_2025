@@ -26,14 +26,16 @@ class NotasCurso
 private: 
     float notas[50][numeroNotas];
     string nombreEst[50];
-    int numEst;
+    
 
 public:
+    int numEst;
     NotasCurso(int=3);
     void mostrarPlanilla();
     void ordenar(bool,int);
     void agregar(string,float[]);
     void mayor_menor(bool,int,float&,string&);
+    void eliminar(string);
     
 };
 
@@ -178,7 +180,7 @@ void NotasCurso::agregar(string est,float cal[]){
 
 void NotasCurso::mayor_menor(bool sel,int col,float &nota,string &est){
     float temp=notas[0][col];
-    string tempEst;
+    string tempEst=nombreEst[0];
   
         for (int i = 1; i < numEst; i++)
         {
@@ -189,9 +191,44 @@ void NotasCurso::mayor_menor(bool sel,int col,float &nota,string &est){
             else if(notas[i][col]<temp && !sel){
                 temp=notas[i][col];
                 tempEst=nombreEst[i];
+                cout<<tempEst<<endl;
             }
         }      
   
     nota=temp;
     est=tempEst;
+}
+
+void NotasCurso::eliminar(string est){
+    int pos;
+    for (int i = 0; i < numEst; i++)
+    {
+        if(nombreEst[i]==est){
+            pos=i;
+            break;
+        }
+    }
+    
+    
+    //parcial[pos]=0.0;
+    //estudiante[pos]="";
+    int temp;
+    if(pos==(numEst-1)){
+        numEst--;
+    }
+    else{
+
+        for (int i = pos; i < numEst; i++)
+        {
+            for (int j = 0; j < numeroNotas; i++)
+            {
+                notas[i][j]=notas[i+1][j];
+                notas[i+1][j]=0.0;
+            }
+            nombreEst[i]=nombreEst[i+1];
+            nombreEst[i+1]="";
+        }  
+        numEst--;   
+    }
+
 }

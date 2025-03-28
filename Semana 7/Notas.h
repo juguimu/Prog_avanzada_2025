@@ -152,8 +152,8 @@ float Notas::mayor_menor(bool sel){
   
         for (int i = 1; i < tam; i++)
         {
-            if(parcial[i]>parcial[i-1] && sel)temp=parcial[i];
-            else if(parcial[i]<parcial[i-1] && !sel)temp=parcial[i];
+            if(parcial[i]>temp && sel)temp=parcial[i];
+            else if(parcial[i]<temp && !sel)temp=parcial[i];
         }      
   
     return temp;
