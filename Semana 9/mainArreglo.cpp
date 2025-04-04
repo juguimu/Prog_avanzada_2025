@@ -13,6 +13,7 @@ using namespace std;
 int main(){
     vector.mostrar();
     vector.agregar(23);
+    vector.eliminar(1);
     cout<<"-------------"<<endl;
     vector.mostrar();
 

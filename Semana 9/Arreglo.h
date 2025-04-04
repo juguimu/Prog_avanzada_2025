@@ -13,6 +13,7 @@ public:
     ~Arreglo();
     void mostrar();
     void agregar(int);
+    void eliminar(int);
 };
 
 Arreglo::Arreglo(int v[],int n)
@@ -53,6 +54,24 @@ void Arreglo::agregar(int valor){
 
     tam++;
 
+}
+
+void Arreglo::eliminar(int pos){
+
+    int *tempVector=new int[tam-1];
+    int cont=0;
+    for (int i = 0; i < tam; i++)
+    {
+        if(i!=pos){
+        tempVector[cont]=vector[i];
+        cont++;
+        }
+    } 
+    delete[] vector;
+
+    vector=tempVector;
+
+    tam--;
 }
 
 
