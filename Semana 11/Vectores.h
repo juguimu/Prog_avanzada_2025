@@ -15,6 +15,7 @@ public:
     void mostrar();
     void agregar(string,int);
     void eliminar(int);//Ejercicio nombre como atributo;
+    void eliminar(string);
 };
 
 Vectores::Vectores(vector<string> n,vector<int> e)
@@ -42,4 +43,14 @@ void Vectores::eliminar(int pos){
     edades.erase(edades.begin()+pos);
 }
 
-
+void Vectores::eliminar(string n){
+    for (int i = 0; i < nombres.size(); i++)
+    {
+        if(n==nombres[i]){
+            nombres.erase(nombres.begin()+i);
+            edades.erase(edades.begin()+i);
+        }
+    }
+    
+    
+}
